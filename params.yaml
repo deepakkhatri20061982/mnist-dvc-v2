@@ -4,10 +4,12 @@ preprocess:
   normalize: true
 
 train:
-  max_iter: 1000
-  solver: lbfgs
-  multi_class: multinomial
-  n_jobs: -1
+  model_type: sgd
+  loss: log_loss
+  max_iter: 50
+  tol: 0.001
+  random_state: 42
+
 
 predict:
   num_samples: 10

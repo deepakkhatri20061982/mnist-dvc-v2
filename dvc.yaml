@@ -6,9 +6,9 @@ stages:
     outs:
       - experiments/experiment.yaml
   preprocess:
-    cmd: python preprocess.py
+    cmd: python src/preprocess.py
     deps:
-      - preprocess.py
+      - src/preprocess.py
       - params.yaml
     outs:
       - data/X_train.pkl
@@ -16,19 +16,19 @@ stages:
       - data/y_train.pkl
       - data/y_test.pkl
   train:
-    cmd: python train.py
+    cmd: python src/train.py
     deps:
-      - train.py
+      - src/train.py
       - data/X_train.pkl
       - data/X_test.pkl
       - data/y_train.pkl
       - data/y_test.pkl
       - params.yaml
   predict:
-    cmd: python predict.py
+    cmd: python src/predict.py
     deps:
-      - predict.py
-      - models/logreg_model.pkl
+      - src/predict.py
+      - model/logreg_model.pkl
       - data/X_test.pkl
       - data/y_test.pkl
       - params.yaml

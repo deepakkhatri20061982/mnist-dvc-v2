@@ -63,6 +63,8 @@ def main():
         print(df_preds)
         print(f"\nSample Accuracy: {sample_accuracy:.4f}")
 
+        mlflow.end_run(status="FINISHED")
+
 
 if __name__ == "__main__":
     main()

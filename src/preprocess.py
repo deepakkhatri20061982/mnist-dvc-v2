@@ -1,5 +1,5 @@
 # preprocess.py
-
+import os
 import mlflow
 import yaml
 import joblib
@@ -12,6 +12,8 @@ warnings.filterwarnings("ignore", category=UserWarning, module="pkg_resources")
 
 
 def main():
+    os.makedirs("data", exist_ok=True)
+
     with open("experiments/experiment.yaml") as f:
         exp_cfg = yaml.safe_load(f)
     experiment_name = exp_cfg["experiment_name"]
@@ -60,6 +62,8 @@ def main():
         # Log small samples
         np.save("train_sample.npy", X_train.iloc[:100].values)
         mlflow.log_artifact("train_sample.npy")
+
+        mlflow.end_run(status="FINISHED")
 
 
 if __name__ == "__main__":

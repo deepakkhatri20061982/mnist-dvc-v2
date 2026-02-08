@@ -1,0 +1,69 @@
+schema: '2.0'
+stages:
+  create_experiment:
+    cmd: python src/create_experiment.py
+    deps:
+    - path: src/create_experiment.py
+      hash: md5
+      md5: c6b60a43ed9190836a7bfffd8a843e50
+      size: 386
+    outs:
+    - path: experiments/experiment.yaml
+      hash: md5
+      md5: b809daa2fe69e92a4460b5d5573d2bba
+      size: 65
+  preprocess:
+    cmd: python src/preprocess.py
+    deps:
+    - path: params.yaml
+      hash: md5
+      md5: 0da1a365c3fba6263fc520898c5c426e
+      size: 220
+    - path: src/preprocess.py
+      hash: md5
+      md5: 3ab0bac791323f7928c20ebe27ecb5fe
+      size: 2075
+    outs:
+    - path: data/X_test.pkl
+      hash: md5
+      md5: 39caf7017ab8176b994105ee44c7ec20
+      size: 87929435
+    - path: data/X_train.pkl
+      hash: md5
+      md5: 06d10ee4d3642a58c300bfdb9c66404c
+      size: 351689435
+    - path: data/y_test.pkl
+      hash: md5
+      md5: fe1908ccd9d9d0ad4b8f2a449cb5b2ee
+      size: 336848
+    - path: data/y_train.pkl
+      hash: md5
+      md5: d35afc5ce473c15ebdb6f68301d14d0d
+      size: 1344848
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/X_test.pkl
+      hash: md5
+      md5: 39caf7017ab8176b994105ee44c7ec20
+      size: 87929435
+    - path: data/X_train.pkl
+      hash: md5
+      md5: 06d10ee4d3642a58c300bfdb9c66404c
+      size: 351689435
+    - path: data/y_test.pkl
+      hash: md5
+      md5: fe1908ccd9d9d0ad4b8f2a449cb5b2ee
+      size: 336848
+    - path: data/y_train.pkl
+      hash: md5
+      md5: d35afc5ce473c15ebdb6f68301d14d0d
+      size: 1344848
+    - path: params.yaml
+      hash: md5
+      md5: 0da1a365c3fba6263fc520898c5c426e
+      size: 220
+    - path: src/train.py
+      hash: md5
+      md5: 5fd7f6f94b0b3b4a3c6c83986ff39efa
+      size: 1546
