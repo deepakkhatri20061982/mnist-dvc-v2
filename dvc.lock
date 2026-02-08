@@ -10,15 +10,15 @@ stages:
     outs:
     - path: experiments/experiment.yaml
       hash: md5
-      md5: b809daa2fe69e92a4460b5d5573d2bba
+      md5: e58a4db2d1ff1925b90a84fdca2ab084
       size: 65
   preprocess:
     cmd: python src/preprocess.py
     deps:
     - path: params.yaml
       hash: md5
-      md5: 0da1a365c3fba6263fc520898c5c426e
-      size: 220
+      md5: e7238bd9dd1735c57f21bc7c23de7d70
+      size: 232
     - path: src/preprocess.py
       hash: md5
       md5: 3ab0bac791323f7928c20ebe27ecb5fe
@@ -61,9 +61,32 @@ stages:
       size: 1344848
     - path: params.yaml
       hash: md5
-      md5: 0da1a365c3fba6263fc520898c5c426e
-      size: 220
+      md5: e7238bd9dd1735c57f21bc7c23de7d70
+      size: 232
     - path: src/train.py
       hash: md5
-      md5: 5fd7f6f94b0b3b4a3c6c83986ff39efa
-      size: 1546
+      md5: 8f7b0f4b2ea6e9ca1e5bf0882a51b1df
+      size: 4011
+  predict:
+    cmd: python src/predict.py
+    deps:
+    - path: data/X_test.pkl
+      hash: md5
+      md5: 39caf7017ab8176b994105ee44c7ec20
+      size: 87929435
+    - path: data/y_test.pkl
+      hash: md5
+      md5: fe1908ccd9d9d0ad4b8f2a449cb5b2ee
+      size: 336848
+    - path: model/logreg_model.pkl
+      hash: md5
+      md5: df8a693a5cc176c6cdc6f822644b7e02
+      size: 72773
+    - path: params.yaml
+      hash: md5
+      md5: e7238bd9dd1735c57f21bc7c23de7d70
+      size: 232
+    - path: src/predict.py
+      hash: md5
+      md5: 6f4e7480a07205462a8d5eec7609b714
+      size: 1959

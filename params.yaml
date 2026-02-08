@@ -9,7 +9,7 @@ train:
   max_iter: 50
   tol: 0.001
   random_state: 42
-
+  epochs: 20
 
 predict:
   num_samples: 10
