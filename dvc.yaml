@@ -1,0 +1,35 @@
+stages:
+  create_experiment:
+    cmd: python src/create_experiment.py
+    deps:
+      - src/create_experiment.py
+    outs:
+      - experiments/experiment.yaml
+  preprocess:
+    cmd: python preprocess.py
+    deps:
+      - preprocess.py
+      - params.yaml
+    outs:
+      - data/X_train.pkl
+      - data/X_test.pkl
+      - data/y_train.pkl
+      - data/y_test.pkl
+  train:
+    cmd: python train.py
+    deps:
+      - train.py
+      - data/X_train.pkl
+      - data/X_test.pkl
+      - data/y_train.pkl
+      - data/y_test.pkl
+      - params.yaml
+  predict:
+    cmd: python predict.py
+    deps:
+      - predict.py
+      - models/logreg_model.pkl
+      - data/X_test.pkl
+      - data/y_test.pkl
+      - params.yaml
+
