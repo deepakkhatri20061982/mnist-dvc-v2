@@ -12,6 +12,8 @@ dvc repro
 
 dvc repro create_experiment --force --downstream
 
+dvc repro --force
+
 # Check Metrics
 dvc metrics show
 
