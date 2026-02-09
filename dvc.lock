@@ -10,7 +10,7 @@ stages:
     outs:
     - path: experiments/experiment.yaml
       hash: md5
-      md5: e58a4db2d1ff1925b90a84fdca2ab084
+      md5: c371a9ff27148d18d83508c8e223e929
       size: 65
   preprocess:
     cmd: python src/preprocess.py
@@ -65,8 +65,8 @@ stages:
       size: 232
     - path: src/train.py
       hash: md5
-      md5: 8f7b0f4b2ea6e9ca1e5bf0882a51b1df
-      size: 4011
+      md5: 9aabff96e21422a14eb76017c8046901
+      size: 4132
   predict:
     cmd: python src/predict.py
     deps:
