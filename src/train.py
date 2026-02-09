@@ -18,6 +18,8 @@ def load_params():
 
 
 def main():
+    os.makedirs("model", exist_ok=True)
+
     params = load_params()
 
     # =========================
