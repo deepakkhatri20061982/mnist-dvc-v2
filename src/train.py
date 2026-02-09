@@ -119,6 +119,7 @@ def main():
         # =========================
         joblib.dump(model, "model/logreg_model.pkl")
         mlflow.sklearn.log_model(model, "model")
+        mlflow.log_artifact("model/logreg_model.pkl", artifact_path="model")
 
         print("📦 Model logged to MLflow")
 
