@@ -15,14 +15,6 @@ pipeline {
                 """
             }
         }
-        stage('DVC Pull') {
-            steps {
-                sh '''
-                . venv/bin/activate
-                python -m dvc pull
-                '''
-            }
-        }
         stage('Model Training') {
             steps {
                 sh 'dvc repro --force'
