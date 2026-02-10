@@ -17,8 +17,10 @@ pipeline {
         }
         stage('Model Training') {
             steps {
-                sh '. venv/bin/activate'
-                sh 'dvc repro --force'
+                sh """
+                . venv/bin/activate
+                dvc repro --force
+                """
             }
         }
         stage('Run Unit Tests') {
