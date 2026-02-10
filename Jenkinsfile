@@ -26,6 +26,7 @@ pipeline {
         stage('Run Unit Tests') {
             steps {
                 sh '''
+                    . venv/bin/activate
                     python tests/conf_test.py
                     export PYTHONPATH=$WORKSPACE:$PYTHONPATH && pytest -v --disable-warnings --maxfail=1 --cov=mnist-dvc --cov-report=xml --cov-report=term
                 '''
