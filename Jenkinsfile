@@ -9,15 +9,17 @@ pipeline {
                 . venv/bin/activate
                 pip install --upgrade pip
                 pip install -r requirements.txt
+
+                which dvc
+                dvc --version
                 """
             }
         }
-        stage('Verify Python Version') {
+        stage('DVC Pull') {
             steps {
                 sh '''
-                python --version
-                which python
-                pip --version
+                . venv/bin/activate
+                python -m dvc pull
                 '''
             }
         }
