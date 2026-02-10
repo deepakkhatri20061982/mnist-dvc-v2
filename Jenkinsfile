@@ -17,6 +17,7 @@ pipeline {
         }
         stage('Model Training') {
             steps {
+                sh '. venv/bin/activate'
                 sh 'dvc repro --force'
             }
         }
